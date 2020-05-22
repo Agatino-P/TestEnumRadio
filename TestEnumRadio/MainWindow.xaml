@@ -12,17 +12,14 @@
     <Window.DataContext>
         <local:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <UniformGrid Rows="3">
         <UniformGrid Height="Auto" Columns="3">
-            <RadioButton Content="1" IsChecked="{Binding Path=Number, Converter={local:SmartConverterEnum}, ConverterParameter={x:Static local:Numbers.Uno}}" />
-            <RadioButton Content="2" IsChecked="{Binding Path=Number, Converter={local:SmartConverterEnum}, ConverterParameter={x:Static local:Numbers.Due}}" />
+            <RadioButton Content="1" GroupName="Numbers" IsChecked="{Binding Path=Number, Converter={local:SmartConverterEnum ValueTrue={x:Static local:Numbers.Uno}}}" />
+            <RadioButton Content="2" GroupName="Numbers" IsChecked="{Binding Path=Number, Converter={local:SmartConverterEnum ValueTrue={x:Static local:Numbers.Due}}}" />
+            <RadioButton Content="3" GroupName="Numbers" IsChecked="{Binding Path=Number, Converter={local:SmartConverterEnum ValueTrue={x:Static local:Numbers.Tre}}}" />
 
-            <RadioButton Content="3" />
         </UniformGrid>
-        <Button Grid.Row="1" Command="{Binding ShowValueCmd}" Content="Button" />
-    </Grid>
+        <Button Grid.Row="1" Command="{Binding SetValue2}" Content="SetValue2" />
+        <Button Grid.Row="2" Command="{Binding ShowValueCmd}" Content="ShowValue" />
+    </UniformGrid>
 </Window>

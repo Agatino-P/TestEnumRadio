@@ -15,13 +15,13 @@ namespace TestEnumRadio
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value.Equals(parameter);
+            return value.Equals(ValueTrue);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if ((bool)value)
-                return parameter;
+                return ValueTrue;
             else
                 return Binding.DoNothing;
         }

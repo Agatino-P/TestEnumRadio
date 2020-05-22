@@ -19,6 +19,15 @@ namespace TestEnumRadio
                 keepTargetAlive: true
                 ));
 
+
+        private RelayCommand _setValue2;
+        public RelayCommand SetValue2 => _setValue2 ?? (_setValue2 = new RelayCommand(
+            () => Number= Numbers.Due,
+            () => { return 1 == 1; },
+			keepTargetAlive:true
+            ));
+		
+
         private Numbers _number = Numbers.Uno;
         public Numbers Number { get => _number; set { Set(() => Number, ref _number, value); }}
     }
